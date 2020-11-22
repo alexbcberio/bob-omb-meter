@@ -23,7 +23,7 @@ Además de las anteriores se pueden usar las siguientes tecnologías mas avanzad
 
 - [Asier Cruz](https://github.com/AsierCruz)
 - [Ivan Garoña](https://github.com/Rubikivan)
-- [Alexander Bergareche]((https://github.com/Rubikivan))
+- [Alexander Bergareche](https://github.com/alexbcberio)
 
 
 ## Descripción de la aplicación web
