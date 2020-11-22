@@ -1,0 +1,33 @@
+/*
+ * Estilos por defecto de elementos
+ */
+
+@import "_font.css";
+
+*::before,
+*,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: var(--base-font-size);
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+a:hover {
+  opacity: .95;
+}

@@ -1,0 +1,17 @@
+@keyframes slideUpBounce {
+  0% {
+    transform: translateY(5rem);
+  }
+
+  70% {
+    transform: translateY(-.5rem);
+  }
+
+  90% {
+    transform: translateY(.25rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

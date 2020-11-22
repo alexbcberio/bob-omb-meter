@@ -1,0 +1,28 @@
+/*
+ * Especificamos por defecto el tema oscuro
+ */
+:root {
+  --background-color: #333;
+  --color: #ddd;
+
+  --primary: #e91e63;
+}
+
+/*
+ * El usuario prefiere utilizar tema claro
+ */
+@media (prefers-color-scheme: light ) {
+  :root {
+    --background-color: #ddd;
+    --color: #333;
+  }
+}
+
+/*
+ * Variables no relacionadas con colores
+ */
+:root {
+  --base-font-size: 14px;
+  --nav-height: 3rem;
+  --aside-width: 15%;
+}

@@ -1,0 +1,25 @@
+#categories h1,
+#promoted h1 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+#categories ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#categories ul li a {
+  display: block;
+  padding: .25rem;
+  text-align: center;
+}
+
+#categories ul li + li {
+  padding-top: .25rem;
+}
+
+#promoted > * {
+  margin-left: .75rem;
+  margin-right: .75rem;
+}

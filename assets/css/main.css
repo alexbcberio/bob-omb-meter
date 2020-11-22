@@ -1,0 +1,24 @@
+/*
+ * Variables css
+ */
+@import "_variables.css";
+
+/*
+ * Estilos por defecto de elementos
+ */
+@import "_reset.css";
+
+/*
+ * Animaciones CSS
+ */
+@import "_animations.css";
+
+/*
+ * Estilos base para todas las páginas
+ */
+@import "pages/_base.css";
+
+/*
+ * Estilos de páginas específicas
+ */
+@import "pages/index.css";
