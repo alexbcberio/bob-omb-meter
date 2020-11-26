@@ -19,6 +19,95 @@
   padding-top: .25rem;
 }
 
+main.index {
+  padding: 0 7rem;
+}
+
+.user-sale {
+  display: flex;
+  margin: auto;
+  margin-bottom: 1.75rem;
+  border-radius: .5rem;
+  padding: .75rem;
+  background-color:var(--background-secondary);
+  box-shadow: 0 0 .4rem var(--background-secondary);
+}
+
+.user-sale:hover {
+  box-shadow: none;
+  transform: scale(1.05);
+}
+
+.user-sale .product {
+  display: block;
+  flex-shrink: 0;
+  width: 20%;
+}
+
+.user-sale .product {
+  background-color: var(--text-color);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-sale .product.default-image .fa-stack {
+  color: var(--background);
+  font-size: 2.5rem;
+  opacity: .1;
+}
+
+.user-sale .sale-body {
+  padding-left: 1rem;
+}
+
+.user-sale .sale-body .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-sale .sale-body .header h1, p {
+  margin: 0;
+}
+.user-sale .sale-body .header .sale-date {
+  flex-shrink: 0;
+}
+
+.user-sale .sale-body .categories {
+  margin: .5rem 0;
+}
+
+.user-sale .sale-body .category {
+  color: var(--secondary);
+  font-size: .75rem;
+  padding: .25em .5em;
+  background-color: var(--primary);
+  border-radius: 1em;
+}
+
+.user-sale .sale-body .category + .category {
+  margin-left: .5em;
+}
+
+.user-sale .sale-body .footer a {
+  float: right;
+  clear: both;
+  padding: .3rem;
+  margin-top: .3rem;
+  border: .15rem solid var(--primary);
+  border-radius: .3rem;
+}
+
+.user-sale .sale-body .footer a:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
 #promoted > * {
   margin-left: .75rem;
   margin-right: .75rem;

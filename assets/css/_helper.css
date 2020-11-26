@@ -1,0 +1,23 @@
+/*
+ * Transiciones
+ */
+.transition-fast {
+  transition: var(--transition-function) .1s;
+}
+
+.transition {
+  transition: var(--transition-function) .25s;
+}
+
+.transition-slow {
+  transition: var(--transition-function) .5s;
+}
+
+/*
+ * Elimina el texto sobrante la linea y añade ... al final
+ */
+.elipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

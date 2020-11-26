@@ -1,22 +1,29 @@
 /*
+ * Esquema de colores
+ */
+:root {
+  --primary: #e91e63;
+  --secondary: #ddd;
+}
+
+/*
  * Especificamos por defecto el tema oscuro
  */
 :root {
-  --background-color: #333;
-  --color: #ddd;
-
-  --primary: #e91e63;
+  --background: #212121;
+  --background-secondary: #2f2f2f;
+  --text-color: #fAfAfA;
 }
 
 /*
  * El usuario prefiere utilizar tema claro
  */
-@media (prefers-color-scheme: light ) {
+ /* TODO: implementar tema claro */
+/* @media (prefers-color-scheme: light ) {
   :root {
-    --background-color: #ddd;
-    --color: #333;
+
   }
-}
+} */
 
 /*
  * Variables no relacionadas con colores
@@ -25,4 +32,5 @@
   --base-font-size: 14px;
   --nav-height: 3rem;
   --aside-width: 15%;
+  --transition-function: ease-out;
 }

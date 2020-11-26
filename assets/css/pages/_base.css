@@ -63,7 +63,6 @@ header nav .nav-left img {
   border: .1em solid var(--primary);
   border-radius: 25%;
   background-color: var(--primary);
-  transition: .25s ease-out;
 }
 
 #to-top.show {
@@ -72,9 +71,9 @@ header nav .nav-left img {
 }
 
 #to-top:hover {
-  border-color: var(--color);
+  border-color: var(--text-color);
   color: var(--primary);
-  background-color: var(--color);
+  background-color: var(--text-color);
 }
 
 footer {
