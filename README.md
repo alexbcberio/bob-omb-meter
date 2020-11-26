@@ -4,7 +4,7 @@ Este proyecto es parte de un trabajo grupal de la asignatura "Servicios y Aplica
 
 ## Objetivo
 
-El objetivo de este proyecto es la implementacion de una aplicación web que permite que el usuario envíe información al servidor a través de formularios. El servidor almacenará esta información para mostrársela a los usuarios de manera más o menos elaborada.
+El objetivo de este proyecto es la implementación de una aplicación web que permite que el usuario envíe información al servidor a través de formularios. El servidor almacenará esta información para mostrársela a los usuarios de manera más o menos elaborada.
 Para ello se deberán usar las siguientes tecnologías web:
 
 - HTML
@@ -24,7 +24,6 @@ Además de las anteriores se pueden usar las siguientes tecnologías mas avanzad
 - [Asier Cruz](https://github.com/AsierCruz)
 - [Ivan Garoña](https://github.com/Rubikivan)
 - [Alexander Bergareche](https://github.com/alexbcberio)
-
 
 ## Descripción de la aplicación web
 
