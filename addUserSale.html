@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/img/logo.png" type="image/png">
+  <!-- libraries -->
+  <link rel="stylesheet" href="/assets/lib/fontawesome/css/all.min.css">
+  <script src="/assets/lib/fontawesome/attribution.js"></script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <title>Añadir chollo</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-left">
+        <li>
+          <a href="/">
+            <img src="/assets/img/logo.png" alt="Logo de la web">
+          </a>
+        </li>
+      </ul>
+      <ul class="nav-center">
+        <li>
+          <a href="/">Inicio</a>
+        </li>
+        <li>
+          <a href="/addUserSale.html">Añadir producto</a>
+        </li>
+      </ul>
+      <ul class="nav-right">
+        <li>
+          <a href="#">
+            <i class="fas fa-user"></i>
+            Iniciar Sesión
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="content">
+
+    <main class="add-user-sale">
+
+      <form action="#" method="POST" enctype="multipart/form-data">
+        <div>
+          <label for="name">
+            Nombre del chollo: *
+          </label>
+          <input type="text" name="name" id="name" placeholder="Introduce el nombre del chollo" autofocus>
+        </div>
+        <div>
+          <label for="url">
+            Enlace al chollo: *
+          </label>
+          <input type="url" name="url" id="url" placeholder="Enlace directo al chollo">
+        </div>
+        <div>
+          <label for="file">
+            Imagen:
+          </label>
+          <input type="file" name="file" id="file" type="image/*">
+        </div>
+        <div>
+          <label for="tags">
+            Categorías: *
+          </label>
+          <select name="tags" id="tags" multiple>
+            <option value="Hogar">Hogar</option>
+            <option value="Electrodomésticos">Electrodomésticos</option>
+            <option value="Electrónica">Electrónica</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Ropa">Ropa</option>
+          </select>
+        </div>
+        <div>
+          <label for="description">
+            Descripción: *
+          </label>
+          <textarea name="description" id="description" placeholder="Describe de que trata este chollo"></textarea>
+        </div>
+        <div>
+          <input type="submit" id="addSale" class="transition-fast" value="Añadir">
+          <p>* Campos obligatorios</p>
+        </div>
+      </form>
+
+      <span class="show transition" id="to-top"><i class="fas fa-arrow-up"></i></span>
+    </main>
+  </div>
+
+  <footer>
+    No decidido que poner
+  </footer>
+</body>
+</html>
