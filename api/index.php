@@ -11,7 +11,7 @@ function endsWith( $haystack, $needle ) {
 $uri = $_SERVER["REQUEST_URI"];
 
 if (endsWith($uri, "/")) {
-  $uri .= "index.php";
+  $uri .= "index.html";
 }
 
 $uri = realpath(__DIR__ . "/.." . $uri);

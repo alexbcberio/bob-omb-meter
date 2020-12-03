@@ -8,7 +8,7 @@
         "src": "/",
         "dest": "/api/index.php"
       }, {
-        "src": "/(.*).php",
+        "src": "/(.*).(php|html)",
         "dest": "/api/index.php"
       }]
   }
