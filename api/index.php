@@ -1,5 +1,5 @@
 <?php
-chdir("..");
+// chdir("..");
 
 function endsWith( $haystack, $needle ) {
   $length = strlen( $needle );
