@@ -4,6 +4,8 @@
 :root {
   --primary: #e91e63;
   --secondary: #ddd;
+
+  --danger: #f44336;
 }
 
 /*

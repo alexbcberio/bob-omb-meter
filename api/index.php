@@ -1,4 +1,5 @@
 <?php
+chdir("..");
 
 function endsWith( $haystack, $needle ) {
   $length = strlen( $needle );
@@ -11,10 +12,10 @@ function endsWith( $haystack, $needle ) {
 $uri = $_SERVER["REQUEST_URI"];
 
 if (endsWith($uri, "/")) {
-  $uri .= "index.html";
+  $uri .= "index.php";
 }
 
-$uri = realpath(__DIR__ . "/.." . $uri);
+$uri = realpath(__DIR__ ."/.." . $uri);
 
 if (!file_exists($uri)) {
   header("Status: 404 Not Found");

@@ -21,3 +21,16 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+/*
+ * Validation helpers
+ */
+
+.validation {
+  font-size: .75rem;
+  padding: .25em 0;
+}
+
+.text-error {
+  color: var(--danger);
+}

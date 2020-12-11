@@ -1,45 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="/assets/img/logo.png" type="image/png">
-  <!-- libraries -->
-  <link rel="stylesheet" href="/assets/lib/fontawesome/css/all.min.css">
-  <script src="/assets/lib/fontawesome/attribution.js"></script>
-
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <?php require_once "./includes/template/head.php"; ?>
 
   <title>Bob-omb meter</title>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul class="nav-left">
-        <li>
-          <a href="/">
-            <img src="/assets/img/logo.png" alt="Logo de la web">
-          </a>
-        </li>
-      </ul>
-      <ul class="nav-center">
-        <li>
-          <a href="/">Inicio</a>
-        </li>
-        <li>
-          <a href="/addUserSale.html">Añadir producto</a>
-        </li>
-      </ul>
-      <ul class="nav-right">
-        <li>
-          <a href="#">
-            <i class="fas fa-user"></i>
-            Iniciar Sesión
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+<?php require_once "./includes/template/header.php"; ?>
 
   <div id="content">
     <aside class="aside-left" id="categories">
@@ -62,11 +29,6 @@
     </aside>
 
     <main class="index">
-      <h1 style="text-align:center;">
-        Página en construcción
-      </h1>
-
-      <img src="/assets/img/loading.gif" alt="Logo" style="display:block;margin:auto;transform:rotateY(180deg);">
 
       <div class="user-sale transition">
         <div class="product default-image">
@@ -163,8 +125,6 @@
           </div>
         </div>
       </div>
-
-      <span class="show transition" id="to-top"><i class="fas fa-arrow-up"></i></span>
     </main>
 
     <aside class="aside-right" id="promoted">
@@ -177,8 +137,6 @@
     </aside>
   </div>
 
-  <footer>
-    No decidido que poner
-  </footer>
+  <?php require_once "./includes/template/footer.php"; ?>
 </body>
 </html>

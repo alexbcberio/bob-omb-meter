@@ -19,16 +19,17 @@ form > div > textarea {
     width: 100%;
 }
 
-form > div > p{
-color:var(--primary);
+form > div > p {
+    color: var(--primary);
 }
+
 form > div > textarea {
     resize: vertical;
     min-height: 5rem;
     max-height: 75vh;
 }
 
-main.add-user-sale #addSale{
+main.addUserSale #addSale {
     background-color: var(--background);
     color: var(--primary);
     float: right;
@@ -40,7 +41,7 @@ main.add-user-sale #addSale{
     cursor: pointer;
 }
 
-main.add-user-sale #addSale:hover{
+main.addUserSale #addSale:hover{
     background-color: var(--primary);
     color: white;
     opacity: 90%;
