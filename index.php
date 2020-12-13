@@ -14,117 +14,52 @@
 
       <ul>
         <li>
-          <a href="#">Categoría 1</a>
+          <a href="?tags=electronica" class="<?php echo $_GET["tags"] == "electronica" ? "active" : "" ?>">
+            <i class="fas fa-fw fa-bolt"></i>
+            Electrónica
+          </a>
         </li>
         <li>
-          <a href="#">Categoría 2</a>
+          <a href="?tags=gaming" class="<?php echo $_GET["tags"] == "gaming" ? "active" : "" ?>">
+            <i class="fas fa-fw fa-gamepad"></i>
+            Gaming
+          </a>
         </li>
         <li>
-          <a href="#">Categoría 3</a>
+          <a href="?tags=moda y complementos" class="<?php echo $_GET["tags"] == "moda y complementos" ? "active" : "" ?>">
+            <i class="fas fa-fw fa-tshirt"></i>
+            Moda y complementos
+          </a>
         </li>
         <li>
-          <a href="#">Categoría 4</a>
+          <a href="?tags=coches y motos" class="<?php echo $_GET["tags"] == "coches y motos" ? "active" : "" ?>">
+            <i class="fas fa-fw fa-motorcycle"></i>
+            Coches y motos
+          </a>
         </li>
+        <li>
+          <a href="?tags=viajes" class="<?php echo $_GET["tags"] == "viajes" ? "active" : "" ?>">
+            <i class="fas fa-fw fa-plane-departure"></i>
+            Viajes
+          </a>
+        </li>
+        <li>
+          <a href="?tags=otros" class="<?php echo $_GET["tags"] == "otros" ? "active" : "" ?>">
+          <i class="fas fa-fw fa-list-alt"></i>
+            Otros
+          </a>
+        </li>
+
       </ul>
     </aside>
 
     <main class="index">
 
-      <div class="user-sale transition">
-        <div class="product default-image">
-          <span class="fa-stack fa-2x">
-            <i class="far fa-image fa-stack-2x"></i>
-            <i class="fas fa-slash fa-stack-1x fa-2x"></i>
-          </span>
-        </div>
-        <div class="sale-body">
-          <div class="header">
-            <h1 class="elipsis">
-              Todo hasta el 70% 🙊
-            </h1>
-            <p class="sale-date">
-              <i class="fas fa-calendar"></i>
-              2020/11/27
-            </p>
-          </div>
-          <div class="categories">
-            <a href="#" class="category">Black Friday</a>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi eaque ipsam expedita molestias deserunt nobis fugiat a natus commodi, similique dolorum optio error dolores fugit nihil obcaecati? Alias, dolorum quae!
-          </p>
-          <div class="footer">
-            <a href="#" class="transition-fast">
-              <i class="fas fa-bomb"></i>
-              Ver Oferta
-            </a>
-          </div>
-        </div>
-      </div>
+      <?php
+      require_once "./includes/helper/salesFunc.php";
+      showSales();
+      ?>
 
-      <div class="user-sale transition">
-        <div class="product default-image">
-          <span class="fa-stack fa-2x">
-            <i class="far fa-image fa-stack-2x"></i>
-            <i class="fas fa-slash fa-stack-1x fa-2x"></i>
-          </span>
-        </div>
-        <div class="sale-body">
-          <div class="header">
-            <h1 class="elipsis">
-              Electrodomesticos cocina 20%
-            </h1>
-            <p class="sale-date">
-              <i class="fas fa-calendar"></i>
-              2020/11/27
-            </p>
-          </div>
-          <div class="categories">
-            <a href="#" class="category">Hogar</a>
-            <a href="#" class="category">Electrodomésticos</a>
-          </div>
-          <p>El cinturón de asteroides es una región del sistema solar comprendida aproximadamente entre las órbitas de Marte y Júpiter. Alberga multitud de objetos irregulares denominados asteroides o planetas menoreS.</p>
-          <div class="footer">
-            <a href="#" class="transition-fast">
-              <i class="fas fa-bomb"></i>
-              Ver Oferta
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="user-sale transition">
-        <div class="product default-image">
-          <span class="fa-stack fa-2x">
-            <i class="far fa-image fa-stack-2x"></i>
-            <i class="fas fa-slash fa-stack-1x fa-2x"></i>
-          </span>
-        </div>
-        <div class="sale-body">
-          <div class="header">
-            <h1 class="elipsis">
-              Cyberpunk 2077
-            </h1>
-            <p class="sale-date">
-              <i class="fas fa-calendar"></i>
-              2020/11/24
-            </p>
-          </div>
-          <div class="categories">
-            <a href="#" class="category">Electrónica</a>
-            <a href="#" class="category">Juegos</a>
-          </div>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit harum minus autem sed error placeat adipisci doloribus at veniam inventore culpa rem sunt rerum, voluptates dignissimos facilis cupiditate corrupti dolores.
-          </p>
-          <div class="footer">
-            <a href="#" class="transition-fast">
-              <i class="fas fa-bomb"></i>
-              Ver Oferta
-            </a>
-          </div>
-        </div>
-      </div>
     </main>
 
     <aside class="aside-right" id="promoted">

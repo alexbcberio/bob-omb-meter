@@ -38,21 +38,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $url = "";
   }
 
-  if (isset($_FILES['file']['tmp_name']) && !empty($_FILES['file']['tmp_name'])) {
+  if (isset($_FILES['file']) && !empty($_FILES['file']['tmp_name'])) {
     $file = $_FILES['file']['tmp_name'];
-    $fileType = getimagesize($file)[2];
-
-    if (filesize($file) / pow(2, 20) > 1) {
+    $fileType = @getimagesize($file)[2];
+    if ((filesize($file) / pow(2, 20)) > 1) {
       $valid = false;
       $fileError = "El archivo supera el límite máximo, 1MB.";
 
-    } else if (!in_array($fileType, [IMAGETYPE_JPEG, IMAGETYPE_PNG])) {
+    } else if (!in_array($fileType, [IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_WEBP])) {
       $valid = false;
-      $fileError = "El archivo debe ser una imagen JPG, JPEG o PNG";
-
-    } else {
-      $fileExtension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);;
-      $savePath = $_SERVER["DOCUMENT_ROOT"] . "/storage/userSales/$name.$fileExtension";
+      $fileError = "El archivo debe ser una imagen JPG, JPEG, PNG o WEBP";
     }
 
   } else {
@@ -61,7 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (isset($_POST['tags'])) {
     $tags = $_POST['tags'];
-    // TODO verificar etiquetas?
 
   } else {
     $valid = false;
@@ -97,13 +91,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $description = htmlspecialchars($description, ENT_HTML5);
 
-  if ($valid && isset($savePath)) {
-    move_uploaded_file($file, $savePath);
+  if ($valid) {
+    require_once "./includes/helper/salesFunc.php";
+    addSale($name, $url, $tags, $description, isset($_FILES['file']) ? $_FILES['file'] : null);
+
     // resetear valores
     $name = "";
     $url = "";
     $tags = [];
     $description = "";
+
   }
 
 } else {
@@ -190,10 +187,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           }
           ?>
           <select name="tags[]" id="tags" multiple>
-            <option value="home" <?php echo in_array("home", $tags) ? "selected" : "" ?>>Hogar</option>
-            <option value="electronic" <?php echo in_array("electronic", $tags) ? "selected" : "" ?>>Electrónica</option>
+            <option value="electronica" <?php echo in_array("electronica", $tags) ? "selected" : "" ?>>Electrónica</option>
             <option value="gaming" <?php echo in_array("gaming", $tags) ? "selected" : "" ?>>Gaming</option>
-            <option value="clothing" <?php echo in_array("clothing", $tags) ? "selected" : "" ?>>Ropa</option>
+            <option value="moda y complementos" <?php echo in_array("moda y complementos", $tags) ? "selected" : "" ?>>Moda y complementos</option>
+            <option value="coches y motos" <?php echo in_array("coches y motos", $tags) ? "selected" : "" ?>>Coches y motos</option>
+            <option value="viajes" <?php echo in_array("viajes", $tags) ? "selected" : "" ?>>Viajes</option>
+            <option value="otros" <?php echo in_array("otros", $tags) ? "selected" : "" ?>>Otros</option>
           </select>
         </div>
         <div>
@@ -216,25 +215,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <aside class="aside-right"></aside>
   </div>
-
-<?php
-// $xml = simplexml_load_file("../xml/users.xml");
-
-// $user = $xml->addChild('user');
-// $email = $user->addChild('email',$email);
-// $nm = $user->addChild('nombre',$name);
-
-
-// function formatXml($simpleXMLElement) {
-//   $xmlDocument = new DOMDocument('1.0');
-//   $xmlDocument -> preserveWhiteSpace = false;
-//   $xmlDocument -> formatOutput = true;
-//   $xmlDocument -> loadXML($simpleXMLElement -> asXML());
-
-//   return $xmlDocument ->saveXML();
-// }
-?>
-
   <?php require_once "./includes/template/footer.php"; ?>
 </body>
 </html>

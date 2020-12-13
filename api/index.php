@@ -1,10 +1,9 @@
 <?php
-// chdir("..");
 
 function endsWith( $haystack, $needle ) {
   $length = strlen( $needle );
   if( !$length ) {
-      return true;
+    return true;
   }
   return substr( $haystack, -$length ) === $needle;
 }
@@ -21,5 +20,6 @@ if (!file_exists($uri)) {
   header("Status: 404 Not Found");
 
 } else {
-  require($uri);
+  chdir("..");
+  require $uri;
 }

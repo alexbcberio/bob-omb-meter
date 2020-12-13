@@ -7,12 +7,21 @@
 #categories ul {
   list-style: none;
   padding-left: 0;
+  margin-left: .25rem;
 }
 
 #categories ul li a {
   display: block;
   padding: .25rem;
-  text-align: center;
+}
+
+#categories ul li a.active {
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, .2);
+}
+
+#categories ul li a i {
+  margin-right: .5em;
 }
 
 #categories ul li + li {
@@ -62,7 +71,9 @@ main.index {
 }
 
 .user-sale .sale-body {
+  flex-grow: 1;
   padding-left: 1rem;
+  word-break: break-all;
 }
 
 .user-sale .sale-body .header {
