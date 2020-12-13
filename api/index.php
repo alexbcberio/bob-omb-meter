@@ -20,6 +20,5 @@ if (!file_exists($uri)) {
   header("Status: 404 Not Found");
 
 } else {
-  chdir("..");
   require $uri;
 }

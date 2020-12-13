@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $description = htmlspecialchars($description, ENT_HTML5);
 
   if ($valid) {
-    require_once "./includes/helper/salesFunc.php";
+    require_once __DIR__ . "/includes/helper/salesFunc.php";
     addSale($name, $url, $tags, $description, isset($_FILES['file']) ? $_FILES['file'] : null);
 
     // resetear valores
@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 <head>
   <?php
-  require_once "./includes/template/head.php";
+  require_once __DIR__ . "/includes/template/head.php";
 
   if ($_SERVER["REQUEST_METHOD"] == "POST" && $valid) {
     ?>
@@ -137,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <title>Añadir chollo</title>
 </head>
 <body>
-<?php require_once "./includes/template/header.php"; ?>
+<?php require_once __DIR__ . "/includes/template/header.php"; ?>
 
   <div id="content">
     <aside class="aside-left"></aside>
@@ -215,6 +215,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <aside class="aside-right"></aside>
   </div>
-  <?php require_once "./includes/template/footer.php"; ?>
+  <?php require_once __DIR__ . "/includes/template/footer.php"; ?>
 </body>
 </html>

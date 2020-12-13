@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <?php require_once "./includes/template/head.php"; ?>
+  <?php require_once __DIR__ . "/includes/template/head.php"; ?>
 
   <title>Plantilla</title>
 </head>
 <body>
-<?php require_once "./includes/template/header.php"; ?>
+<?php require_once __DIR__ . "/includes/template/header.php"; ?>
 
   <div id="content">
     <aside class="aside-left"></aside>
@@ -23,6 +23,6 @@
     <aside class="aside-right"></aside>
   </div>
 
-  <?php require_once "./includes/template/footer.php"; ?>
+  <?php require_once __DIR__ . "/includes/template/footer.php"; ?>
 </body>
 </html>

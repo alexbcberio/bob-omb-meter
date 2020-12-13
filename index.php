@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <?php require_once "./includes/template/head.php"; ?>
+  <?php require_once __DIR__ . "/includes/template/head.php"; ?>
 
   <title>Bob-omb meter</title>
 </head>
 <body>
-<?php require_once "./includes/template/header.php"; ?>
+<?php require_once __DIR__ . "/includes/template/header.php"; ?>
 
   <div id="content">
     <aside class="aside-left" id="categories">
@@ -56,7 +56,7 @@
     <main class="index">
 
       <?php
-      require_once "./includes/helper/salesFunc.php";
+      require_once __DIR__ . "/includes/helper/salesFunc.php";
       showSales();
       ?>
 
@@ -72,6 +72,6 @@
     </aside>
   </div>
 
-  <?php require_once "./includes/template/footer.php"; ?>
+  <?php require_once __DIR__ . "/includes/template/footer.php"; ?>
 </body>
 </html>
