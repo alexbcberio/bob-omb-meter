@@ -63,17 +63,34 @@ function addSale($name, $url, $tags, $description, $image) {
 
 function showSales(){
   $sales = openXML();
+  $salesArray = [];
 
   foreach($sales as $sale) {
     $tags = [];
+
     foreach($sale->categories->children() as $category){
         array_push($tags, $category);
     }
-    showSale($sale->name, intval($sale["date"]), $sale->url, $tags, $sale->description, $sale->img);
+
+    array_push($salesArray, [
+      "name" => $sale->name,
+      "date" => intval($sale["date"]),
+      "url" => $sale->url,
+      "tags" => $tags,
+      "description" => $sale->description,
+      "img" => $sale->img
+    ]);
+    // showSale($sale->name, intval($sale["date"]), $sale->url, $tags, $sale->description, $sale->img);
   }
+
+  foreach(array_reverse($salesArray) as $sale) {
+    showSale($sale["name"], $sale["date"], $sale["url"], $sale["tags"], $sale["description"], $sale["img"]);
+  }
+
 }
 
 function showSale($name, $date, $url, $tags, $description, $img) {
+  require_once __DIR__ . "/time2str.php";
   ?>
   <div class="user-sale transition">
     <div class="product<?php echo empty($img) ? " default-image" : "" ?>"<?php if (!empty($img)) { ?> style="background-image: url('/storage/userSales/<?php echo $img ?>')"<?php } ?>>
@@ -91,7 +108,7 @@ function showSale($name, $date, $url, $tags, $description, $img) {
         </h1>
         <p class="sale-date">
           <i class="fas fa-calendar"></i>
-          <?php echo date("d/m/Y", $date) ?>
+          <?php echo time2str($date) ?>
         </p>
       </div>
       <div class="categories">
@@ -116,4 +133,5 @@ function showSale($name, $date, $url, $tags, $description, $img) {
   </div>
   <?php
 }
+
 ?>
