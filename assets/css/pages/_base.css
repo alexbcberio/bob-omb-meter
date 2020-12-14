@@ -53,7 +53,7 @@ header nav .nav-left img {
   position: fixed;
   bottom: .5rem;
   right: calc(var(--aside-width) + .5rem);
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 2rem;
@@ -63,11 +63,15 @@ header nav .nav-left img {
   border: .1em solid var(--primary);
   border-radius: 25%;
   background-color: var(--primary);
+  transform: translateY(3rem);
 }
 
 #to-top.show {
-  display: flex;
-  animation: slideUpBounce .75s ease-out;
+  animation: slideUpBounce .75s ease-out forwards;
+}
+
+#to-top.hide {
+  animation: slideDown .5s ease-out forwards;
 }
 
 #to-top:hover {

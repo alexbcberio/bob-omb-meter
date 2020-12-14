@@ -15,3 +15,13 @@
     transform: translateY(0);
   }
 }
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(3rem);
+  }
+}
