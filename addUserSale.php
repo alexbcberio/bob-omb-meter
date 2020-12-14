@@ -1,4 +1,9 @@
 <?php
+if (!file_exists(__DIR__ . "/captcha.key")) {
+  die("Missing captcha.key file");
+}
+
+$captchaCredentials = explode(",", file_get_contents(__DIR__ . "/captcha.key"));
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $valid = true;
@@ -92,6 +97,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $description = htmlspecialchars($description, ENT_HTML5);
 
   if ($valid) {
+    $captcha = $_POST["frc-captcha-solution"];
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://friendlycaptcha.com/api/v1/siteverify");
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS,
+      "solution=" . $captcha .
+      "&secret=" . $captchaCredentials[1] .
+      "&sitekey=" . $captchaCredentials[0]
+    );
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $captchaSolution = json_decode(curl_exec($ch));
+    $valid = $captchaSolution->success;
+  }
+
+  if ($valid) {
     require_once __DIR__ . "/includes/helper/salesFunc.php";
     addSale($name, $url, $tags, $description, isset($_FILES['file']) ? $_FILES['file'] : null);
 
@@ -134,6 +156,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   ?>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/friendly-challenge@0.6.1/widget.module.min.js" async defer></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/friendly-challenge@0.6.1/widget.min.js" async defer></script>
   <title>Añadir chollo</title>
 </head>
 <body>
@@ -207,12 +231,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <textarea name="description" id="description" placeholder="Describe de que trata este chollo"><?php echo $description ?></textarea>
         </div>
         <div>
+          <?php
+          if (isset($captchaSolution) && !empty($captchaSolution->errors)) {
+            echo '<p class="validation text-error">Debe completar el captcha para añadir un producto ('. $captchaSolution->errors[0] . ').</p>';
+          }
+          ?>
+          <div class="frc-captcha dark" data-sitekey="<?php echo $captchaCredentials[0] ?>"></div>
+        </div>
+        <div>
           <input type="submit" id="addSale" class="transition-fast" value="Añadir">
           <p>* Campos obligatorios</p>
         </div>
       </form>
     </main>
-
     <aside class="aside-right"></aside>
   </div>
   <?php require_once __DIR__ . "/includes/template/footer.php"; ?>

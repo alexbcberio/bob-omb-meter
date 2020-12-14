@@ -3,3 +3,5 @@ xml/*
 
 storage/userSales/*
 !storage/userSales/.gitkeep
+
+captcha.key
