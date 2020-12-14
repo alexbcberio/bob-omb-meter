@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if (!file_exists(__DIR__ . "/captcha.key")) {
   die("Missing captcha.key file");
 }
@@ -6,6 +8,10 @@ if (!file_exists(__DIR__ . "/captcha.key")) {
 $captchaCredentials = explode(",", file_get_contents(__DIR__ . "/captcha.key"));
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (!$_SESSION["authenticated"]) {
+    header("Status: 403");
+    die("Debes iniciar sesión.");
+  }
   $valid = true;
 
   // setting
@@ -239,7 +245,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="frc-captcha dark" data-sitekey="<?php echo $captchaCredentials[0] ?>"></div>
         </div>
         <div>
-          <input type="submit" id="addSale" class="transition-fast" value="Añadir">
+          <p class="validation text-error">Debes iniciar sesión para poder añadir ofertas.</p>
+          <input type="submit" id="addSale" class="transition-fast" value="Añadir" <?php echo !isset($_SESSION["authenticated"]) ? "disabled" : "" ?>>
           <p>* Campos obligatorios</p>
         </div>
       </form>

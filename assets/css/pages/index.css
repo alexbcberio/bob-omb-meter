@@ -119,6 +119,7 @@ main.index {
   color: var(--secondary);
 }
 
+
 #promoted > * {
   margin-left: .75rem;
   margin-right: .75rem;

@@ -1,9 +1,30 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <?php require_once __DIR__ . "/includes/template/head.php"; ?>
 
   <title>Bob-omb meter</title>
+  <?php
+  if (isset($_SESSION["alertShown"]) && !$_SESSION["alertShown"]) {
+    $_SESSION["alertShown"] = true;
+    ?>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      swal({
+        icon: "success",
+        title: "Sesión iniciada",
+        text: " ",
+        button: false,
+        timer: 1000,
+      });
+    });
+  </script>
+    <?php
+  }
+  ?>
 </head>
 <body>
 <?php require_once __DIR__ . "/includes/template/header.php"; ?>

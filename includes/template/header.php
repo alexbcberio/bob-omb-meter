@@ -17,9 +17,20 @@
     </ul>
     <ul class="nav-right">
       <li>
-        <a href="#">
-          <i class="fas fa-user"></i>
-          Iniciar Sesión
+        <a href="/authenticate.php">
+        <?php
+          if (isset($_SESSION["email"])) {
+            ?>
+            <i class="fas fa-sign-out-alt"></i>
+            <?php
+            echo 'Cerrar sesión (' . $_SESSION["email"] . ")";
+          } else {
+            ?>
+            <i class="fas fa-user"></i>
+            Autenticarse
+            <?php
+          }
+          ?>
         </a>
       </li>
     </ul>

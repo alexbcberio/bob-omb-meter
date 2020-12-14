@@ -28,21 +28,3 @@ form > div > textarea {
     min-height: 5rem;
     max-height: 75vh;
 }
-
-main.addUserSale #addSale {
-    background-color: var(--background);
-    color: var(--primary);
-    float: right;
-    clear: both;
-    padding: .3rem;
-    margin-top: .3rem;
-    border: .10rem solid var(--primary);
-    border-radius: .3rem;
-    cursor: pointer;
-}
-
-main.addUserSale #addSale:hover{
-    background-color: var(--primary);
-    color: white;
-    opacity: 90%;
-}
