@@ -61,14 +61,14 @@ function addSale($name, $url, $tags, $description, $image) {
   saveXML($xml);
 }
 
-function showSales($showTags) {
+function salesArray() {
   $sales = openXML();
   $salesArray = [];
 
   foreach($sales as $sale) {
     $tags = [];
 
-    foreach($sale->categories->children() as $category){
+    foreach($sale->categories->children() as $category) {
         array_push($tags, $category);
     }
 
@@ -81,6 +81,12 @@ function showSales($showTags) {
       "img" => $sale->img
     ]);
   }
+
+  return $salesArray;
+}
+
+function showSales($showTags) {
+  $salesArray = salesArray();
 
   foreach(array_reverse($salesArray) as $sale) {
     if (empty($showTags) || in_array($showTags, $sale["tags"])) {
@@ -135,4 +141,41 @@ function showSale($name, $date, $url, $tags, $description, $img) {
   <?php
 }
 
-?>
+function showSaleVertical($name, $url, $img) {
+  require_once __DIR__ . "/time2str.php";
+  ?>
+  <div class="user-sale user-sale-vertical transition">
+    <div class="product<?php echo empty($img) ? " default-image" : "" ?>"<?php if (!empty($img)) { ?> style="background-image: url('/storage/userSales/<?php echo $img ?>')"<?php } ?>>
+        <?php if (empty($img)) { ?>
+        <span class="fa-stack fa-2x">
+          <i class="far fa-image fa-stack-2x"></i>
+          <i class="fas fa-slash fa-stack-1x fa-2x"></i>
+        </span>
+        <?php } ?>
+      </div>
+      <div class="sale-body">
+        <div class="header">
+          <h1 class="elipsis">
+          <?php
+          $name = substr($name, 0, 15);
+          echo $name . "..."?>
+          </h1>
+        </div>
+        <div class="footer">
+          <a href="<?php echo $url ?>" target="_blank" class="transition-fast">
+            <i class="fas fa-bomb"></i>
+            Ver Oferta
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php
+}
+
+function showRandom() {
+  $sales = salesArray();
+  $randId = rand(0, count($sales) - 1);
+  $randomSale = $sales[$randId];
+  showSaleVertical($randomSale["name"], $randomSale["url"], $randomSale["img"]);
+}

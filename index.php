@@ -84,12 +84,8 @@ session_start();
     </main>
 
     <aside class="aside-right" id="promoted">
-      <h1>Promocionado</h1>
-
-      <p>Promocionado 1</p>
-      <p>Promocionado 2</p>
-      <p>Promocionado 3</p>
-      <p>Promocionado 4</p>
+      <h1>Oferta aleatoria</h1>
+      <?php showRandom(); ?>
     </aside>
   </div>
 

@@ -51,9 +51,6 @@ main.index {
   display: block;
   flex-shrink: 0;
   width: 20%;
-}
-
-.user-sale .product {
   background-color: var(--text-color);
   background-size: contain;
   background-repeat: no-repeat;
@@ -119,8 +116,34 @@ main.index {
   color: var(--secondary);
 }
 
-
 #promoted > * {
   margin-left: .75rem;
   margin-right: .75rem;
+}
+
+#promoted .user-sale {
+  display: block;
+  position: sticky;
+  top: 1.5rem;
+}
+
+#promoted .user-sale .product {
+  width: 100%;
+  height: 10vw;
+  margin-bottom: .5rem;
+}
+
+#promoted .user-sale .sale-body .header {
+  display: block;
+}
+
+#promoted .user-sale .sale-body .footer {
+  margin-top: .75rem;
+}
+
+#promoted .user-sale .sale-body .footer a {
+  display: block;
+  margin: auto;
+  float: none;
+  text-align: center;
 }
