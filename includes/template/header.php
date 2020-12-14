@@ -9,7 +9,7 @@
     </ul>
     <ul class="nav-center">
       <li>
-        <a href="/" class="<?php echo "/" == $_SERVER["REQUEST_URI"] ? "active" : ""; ?>">Inicio</a>
+        <a href="/" class="<?php echo "/" == $_SERVER["REQUEST_URI"] ? "active" : ""; ?>">Ver bombazos</a>
       </li>
       <li>
         <a href="/addUserSale.php" class="<?php echo "/addUserSale.php" == $_SERVER["REQUEST_URI"] ? "active" : ""; ?>">Añadir producto</a>

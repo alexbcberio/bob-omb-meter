@@ -57,7 +57,7 @@
 
       <?php
       require_once __DIR__ . "/includes/helper/salesFunc.php";
-      showSales();
+      showSales($_GET["tags"] ?? null);
       ?>
 
     </main>

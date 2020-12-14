@@ -61,7 +61,7 @@ function addSale($name, $url, $tags, $description, $image) {
   saveXML($xml);
 }
 
-function showSales(){
+function showSales($showTags) {
   $sales = openXML();
   $salesArray = [];
 
@@ -80,11 +80,12 @@ function showSales(){
       "description" => $sale->description,
       "img" => $sale->img
     ]);
-    // showSale($sale->name, intval($sale["date"]), $sale->url, $tags, $sale->description, $sale->img);
   }
 
   foreach(array_reverse($salesArray) as $sale) {
-    showSale($sale["name"], $sale["date"], $sale["url"], $sale["tags"], $sale["description"], $sale["img"]);
+    if (empty($showTags) || in_array($showTags, $sale["tags"])) {
+      showSale($sale["name"], $sale["date"], $sale["url"], $sale["tags"], $sale["description"], $sale["img"]);
+    }
   }
 
 }
@@ -115,7 +116,7 @@ function showSale($name, $date, $url, $tags, $description, $img) {
         <?php
         foreach ($tags as $tag) {
           ?>
-          <a href="#" class="category"><?php echo $tag ?></a>
+          <a href="/?tags=<?php echo $tag ?>" class="category"><?php echo $tag ?></a>
           <?php
         }
         ?>
