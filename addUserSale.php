@@ -245,7 +245,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="frc-captcha dark" data-sitekey="<?php echo $captchaCredentials[0] ?>"></div>
         </div>
         <div>
+          <?php
+          if (!isset($_SESSION["authenticated"])) {
+          ?>
           <p class="validation text-error">Debes iniciar sesión para poder añadir ofertas.</p>
+          <?php
+          }
+          ?>
           <input type="submit" id="addSale" class="transition-fast" value="Añadir" <?php echo !isset($_SESSION["authenticated"]) ? "disabled" : "" ?>>
           <p>* Campos obligatorios</p>
         </div>
